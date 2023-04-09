@@ -15,7 +15,7 @@ function Option({ option, onClick }) {
 
   return (
     <div className="option">
-      <button key={option.value} onClick={onClick} disabled={option.selected}>
+      <button className="btn" key={option.value} onClick={onClick} disabled={option.selected}>
         {option.value}
       </button>
       {icon}

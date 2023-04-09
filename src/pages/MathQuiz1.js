@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from 'react'
-import Option from './Option'
-import Score from './Score'
+import Option from '../components/Option'
+import Score from '../components/Score'
 
 
 const MAX = 20;
@@ -52,7 +52,7 @@ function getRandomOptions(num, answer) {
   return shuffle(options);
 }
 
-function MathQuiz() {
+function MathQuiz1() {
   const [numCorrect, setNumCorrect] = useState(0);
   const [numWrong, setNumWrong] = useState(0);
   const [x, setX] = useState(getRandomInt(MAX));
@@ -70,6 +70,7 @@ function MathQuiz() {
     setShowNext(false);
     setOptions(getRandomOptions(3, nextX + nextY));
   }
+
 
   function checkAnswer(e) {
     const num = Number(e.target.innerHTML);
@@ -100,13 +101,13 @@ function MathQuiz() {
 
 
   return (
-    <div className='justify-center px-10'>
+    <div className='box1 bg-white mx-auto' id='MathQuiz1'>
       <Score score={Math.max(numCorrect - numWrong, 0)} />
       <p>
         {x} + {y} =
       </p>
-      <div className="options">{optionsList}</div>
-      <h3>{message}</h3>
+      <div className="options flex items-center justify-center">{optionsList}</div>
+      <h3 className='my-10 font-bold text-3xl'>{message}</h3>
       <hr />
       {nextButton}
 
@@ -115,4 +116,4 @@ function MathQuiz() {
   );
 }
 
-export default MathQuiz;
+export default MathQuiz1;
